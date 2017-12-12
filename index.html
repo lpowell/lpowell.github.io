@@ -1,7 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head />
-<body>
-<h1> NEWNEWNEWNEWNEWNEW</h1>
+<head>
+<title> Sylvelyon | Home </title>
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 5px;
+		}
+	th {
+		text-align: left;
+		}
+	table#t1 th {
+	background-color: #999;
+		}
+	table#t2 {
+		}
+	div#t1 {
+		height: 250px;
+		width: 600px;
+		}
+	.header {
+		background-color: #00fe0;
+		padding: 20px:
+		text-align: center;
+		}
+	.topnav {
+		overflow: hidden;
+		background-color: #999;
+		}
+	.topnav a {
+		float: left;
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		}
+	.topnav a:hover {
+		background-color: #eee;
+		color: black;
+		}
+	.column {
+		float: left;
+		padding: 10px;
+		}
+	.column.middle {
+		width: 60%;
+		}
+	.column.side {
+		width: 20%;
+		}
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+	@media (max-width: 600px) {
+		.column.side, .column.middle {
+			width: 100%;
+			}
+		}
+</style>
+</head>
+<body bgcolor="#eee">
+<div class="header">
+	<h1 style="text-align: center;"> Welcome! </h1>
+</div>
+<div class="topnav">
+	<a href="TBD">Home</a>
+
+	<a href="TBD">Updates</a>
+
+	<a href="TBD"> Archive</a>
+
+	<a href="TBD"> About </a>
+</div>
+<div class="column side">
+<table id="t1" style="width:100%">
+	<tr>
+		<th><a href="TBD"> Current Updates</a> </th>
+		<th><a href="TBD"> Recently Archived Posts</a> </th>
+	</tr>
+	<tr>
+		<td> <a href="TBD"> TEST POST </a> </td>
+		<td />
+	</tr>
+</table>
+</div>
+<div class="column middle">
+<table id="t2" style="width: 100%;">
+	<tr>
+		<th style="text-align: center;"> Welcome!</th>
+	</tr>
+	<tr>
+		<td style="text-align: left;"> To the side are the current and archived pages. </td>
+	</tr>
+</table>
+</div>
 </body>
 </html>
