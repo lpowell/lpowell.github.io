@@ -45,11 +45,14 @@
 		float: left;
 		padding: 10px;
 		}
+	.column.side {
+		width: 20%;
+		}
 	.column.middle {
 		width: 60%;
 		}
-	.column.side {
-		width: 20%;
+	.column.info {
+		width: 16%;
 		}
 	.row:after {
 		content: "";
@@ -57,7 +60,7 @@
 		clear: both;
 		}
 	@media (max-width: 600px) {
-		.column.side, .column.middle {
+		.column.side, .column.middle, .column.info {
 			width: 100%;
 			}
 		}
@@ -76,6 +79,7 @@
 
 	<a href="TBD"> About </a>
 </div>
+<div class="row">
 <div class="column side">
 <table id="t1" style="width:100%">
 	<tr>
@@ -97,6 +101,10 @@
 		<td style="text-align: left;"> To the side are the current and archived pages. </td>
 	</tr>
 </table>
+</div>
+<div class="column info">
+	
+</div>
 </div>
 </body>
 </html>
