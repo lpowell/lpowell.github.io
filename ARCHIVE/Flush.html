@@ -81,7 +81,9 @@
 </div>
 <div class="column middle">
 <h1 style="text-align: center;"> Flush | An experiment on animation in the console </h1>
-<p> #include <iostream>
+<script src="/RESOURCES/rainbow-custom.min.js"></script>
+<pre><code data-language="c" >
+#include <iostream>
 #define _WIN32_WINNT 0x0500
 #include <windows.h>
 #include <conio.h>
@@ -369,7 +371,8 @@ void ShowConsoleCursor(bool showFlag) /// Blatantly stolen from SO: http://stack
     cursorInfo.bVisible = showFlag; // set the cursor visibility
     SetConsoleCursorInfo(out, &cursorInfo);
 }
-</p>
+</code>
+</pre>
 <div class="column side">
 <a href="/Flush/Flush.txt">Download</a>
 </div>
