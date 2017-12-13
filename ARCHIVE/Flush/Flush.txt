@@ -1,0 +1,287 @@
+#include <iostream>
+#define _WIN32_WINNT 0x0500
+#include <windows.h>
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+void newline();
+void IDSPACE(int x, int y);
+string Object_A = "O";
+string Object_B = "Q";
+void Animate(int X, int Y);
+void ShowConsoleCursor(bool showFlag);
+int main()
+{
+    ShowConsoleCursor(false);
+    bool exit = false;
+    system("echo off");
+    HWND console = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(console, &r);
+    MoveWindow(console, r.left, r.top, 800, 600, TRUE);
+    while(exit == false)
+        {
+            /*IDSPACE y causes degradation in x at points higher than 1 FIXED*/
+            ///it appears to be at a 1:1 i.e. 30,3 would actually be something like 28,3 FIXED
+            ///NEW x is off by one, most likely due to the induction of the ycoord fix FIXED actually unrelated to y
+            Animate(0,0);
+            if (GetAsyncKeyState(VK_ESCAPE))
+            {
+                exit = true;
+            }
+            ///Sleep(50); actually slows it down lol
+        }
+}
+void newline()
+{
+    cout <<endl;
+    return;
+}
+
+void IDSPACE(int X_Coord, int Y_Coord)///if x is right but y isn't it skips a character
+///it won't print out a . FIXED
+{
+    int X_Iterations=1; /// x iterations is a measure for x coord
+    int Y_Iterations=1; /// y iterations is a measure for y coord
+        for(int x=0; x!=35 && x < 35; x++)
+    {
+        ///vertical \ y
+        X_Iterations = 1; /// reset x iterations every y loop NEW needs to be set to one or it messes up the x axis
+        for(int x=0; x!=95 && x < 95; x++)
+        {
+            if(X_Iterations != X_Coord)///if  X_Iterations == X_Coord it will skip
+            {
+                cout << " ";
+            }
+            else if(X_Iterations == X_Coord && Y_Iterations == Y_Coord)
+            {
+                cout << Object_A;
+            }
+            if(X_Iterations == X_Coord && Y_Iterations != Y_Coord)/// flag if X_Iterations is equal to X_Coord and Y_Iterations is not equal to Y_Coord
+            {
+                cout << " ";
+            }
+            ///horizontal \ x
+            X_Iterations=X_Iterations + 1;
+        }
+        Y_Iterations=Y_Iterations + 1;
+    }
+}
+
+void Animate(int X, int Y)
+{
+    bool exit = false;
+    int Animation_Iteration = 0;
+        for(;!exit;)
+        {
+            ///Will work on
+            /*IDSPACE((1+Animation_Iteration),(1+Animation_Iteration)); /// adds A_I to coord output
+            Animation_Iteration=Animation_Iteration+1;
+            if(Animation_Iteration >= 10) /// When A_I is ten, resets
+            {
+                Animation_Iteration=0;
+            }
+             if (GetAsyncKeyState(VK_ESCAPE))
+            {
+                exit = true;
+            }
+            system("CLS");*/
+            IDSPACE(1,1);
+            system("CLS");
+            IDSPACE(2,2);
+            system("CLS");
+            IDSPACE(3,3);
+            system("CLS");
+            IDSPACE(4,4);
+            system("CLS");
+            IDSPACE(5,5);
+            system("CLS");
+            IDSPACE(6,6);
+            system("CLS");
+            IDSPACE(7,7);
+            system("CLS");
+            IDSPACE(8,8);
+            system("CLS");
+            IDSPACE(9,9);
+            system("CLS");
+            IDSPACE(10,10);
+            system("CLS");
+            IDSPACE(11,9);
+            system("CLS");
+            IDSPACE(12,8);
+            system("CLS");
+            IDSPACE(13,7);
+            system("CLS");
+            IDSPACE(14,6);
+            system("CLS");
+            IDSPACE(15,5);
+            system("CLS");
+            IDSPACE(16,4);
+            system("CLS");
+            IDSPACE(17,3);
+            system("CLS");
+            IDSPACE(18,2);
+            system("CLS");
+            IDSPACE(19,1);
+            system("CLS");
+            IDSPACE(20,2);
+            system("CLS");
+            IDSPACE(21,3);
+            system("CLS");
+            IDSPACE(22,4);
+            system("CLS");
+            IDSPACE(23,5);
+            system("CLS");
+            IDSPACE(24,6);
+            system("CLS");
+            IDSPACE(25,7);
+            system("CLS");
+            IDSPACE(26,8);
+            system("CLS");
+            IDSPACE(27,9);
+            system("CLS");
+            IDSPACE(28,10);
+            system("CLS");
+            IDSPACE(29,9);
+            system("CLS");
+            IDSPACE(30,8);
+            system("CLS");
+            IDSPACE(31,7);
+            system("CLS");
+            IDSPACE(32,6);
+            system("CLS");
+            IDSPACE(33,5);
+            system("CLS");
+            IDSPACE(34,4);
+            system("CLS");
+            IDSPACE(35,3);
+            system("CLS");
+            IDSPACE(36,2);
+            system("CLS");
+            IDSPACE(37,1);
+            system("CLS");
+            IDSPACE(38,2);
+            system("CLS");
+            IDSPACE(39,3);
+            system("CLS");
+            IDSPACE(40,4);
+            system("CLS");
+            IDSPACE(41,5);
+            system("CLS");
+            IDSPACE(42,6);
+            system("CLS");
+            IDSPACE(43,7);
+            system("CLS");
+            IDSPACE(44,8);
+            system("CLS");
+            IDSPACE(45,9);
+            system("CLS");
+            IDSPACE(46,10);
+            system("CLS");
+            IDSPACE(47,9);
+            system("CLS");
+            IDSPACE(48,8);
+            system("CLS");
+            IDSPACE(49,7);
+            system("CLS");
+            IDSPACE(50,6);
+            system("CLS");
+            IDSPACE(51,5);
+            system("CLS");
+            IDSPACE(52,4);
+            system("CLS");
+            IDSPACE(53,3);
+            system("CLS");
+            IDSPACE(54,2);
+            system("CLS");
+            IDSPACE(55,1);
+            system("CLS");
+            IDSPACE(56,2);
+            system("CLS");
+            IDSPACE(57,3);
+            system("CLS");
+            IDSPACE(58,4);
+            system("CLS");
+            IDSPACE(59,5);
+            system("CLS");
+            IDSPACE(60,6);
+            system("CLS");
+            IDSPACE(61,7);
+            system("CLS");
+            IDSPACE(62,8);
+            system("CLS");
+            IDSPACE(63,9);
+            system("CLS");
+            IDSPACE(64,10);
+            system("CLS");
+            IDSPACE(65,9);
+            system("CLS");
+            IDSPACE(66,8);
+            system("CLS");
+            IDSPACE(67,7);
+            system("CLS");
+            IDSPACE(68,6);
+            system("CLS");
+            IDSPACE(69,5);
+            system("CLS");
+            IDSPACE(70,4);
+            system("CLS");
+            IDSPACE(71,3);
+            system("CLS");
+            IDSPACE(72,2);
+            system("CLS");
+            IDSPACE(73,1);
+            system("CLS");
+            IDSPACE(74,2);
+            system("CLS");
+            IDSPACE(75,3);
+            system("CLS");
+            IDSPACE(76,4);
+            system("CLS");
+            IDSPACE(77,5);
+            system("CLS");
+            IDSPACE(78,6);
+            system("CLS");
+            IDSPACE(79,7);
+            system("CLS");
+            IDSPACE(80,8);
+            system("CLS");
+            IDSPACE(81,9);
+            system("CLS");
+            IDSPACE(82,10);
+            system("CLS");
+            IDSPACE(83,9);
+            system("CLS");
+            IDSPACE(84,8);
+            system("CLS");
+            IDSPACE(85,7);
+            system("CLS");
+            IDSPACE(86,6);
+            system("CLS");
+            IDSPACE(87,5);
+            system("CLS");
+            IDSPACE(88,4);
+            system("CLS");
+            IDSPACE(89,3);
+            system("CLS");
+            IDSPACE(90,2);
+            system("CLS");
+            IDSPACE(91,1);
+            system("CLS");
+        }
+}
+
+void ShowConsoleCursor(bool showFlag) /// Blatantly stolen from SO: http://stackoverflow.com/questions/18028808/blinking-underscore-with-console
+{
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO     cursorInfo;
+
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = showFlag; // set the cursor visibility
+    SetConsoleCursorInfo(out, &cursorInfo);
+}
