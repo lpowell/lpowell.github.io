@@ -1,0 +1,122 @@
+table, th, td {
+
+		border: 1px solid black;
+
+		border-collapse: collapse;
+
+		padding: 5px;
+
+		}
+
+	th {
+
+		text-align: left;
+
+		}
+
+	table#t1 th {
+
+	background-color: #999;
+
+		}
+
+	table#t2 {
+
+		}
+
+	div#t1 {
+
+		height: 250px;
+
+		width: 600px;
+
+		}
+
+	.header {
+
+		background-color: #00fe0;
+
+		padding: 20px:
+
+		text-align: center;
+
+		}
+
+	.topnav {
+
+		overflow: hidden;
+
+		background-color: #999;
+
+		}
+
+	.topnav a {
+
+		float: left;
+
+		display: block;
+
+		color: white;
+
+		text-align: center;
+
+		padding: 14px 16px;
+
+		text-decoration: none;
+
+		}
+
+	.topnav a:hover {
+
+		background-color: #eee;
+
+		color: black;
+
+		}
+
+	.column {
+
+		float: left;
+
+		padding: 10px;
+
+		}
+
+	.column.side {
+
+		width: 18%;
+
+		}
+
+	.column.middle {
+
+		width: 60%;
+
+		}
+
+	.column.info {
+
+		width: 18%;
+
+		}
+
+	.row:after {
+
+		content: "";
+
+		display: table;
+
+		clear: both;
+
+		}
+
+	@media (max-width: 750px) {
+
+		.column.side, .column.middle, .column.info {
+
+			width: 100%;
+
+			}
+
+		}
+
