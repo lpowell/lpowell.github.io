@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Sylvelyon | ARCHIVE </title>
+<style>
+	h2#L01 {
+		color: blue;
+		}
+	h2#L01:hover {
+		color: purple;
+		}
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 5px;
+		}
+	th {
+		text-align: left;
+		}
+	table#t1 th {
+	background-color: #999;
+		}
+	table#t2 {
+		}
+	div#t1 {
+		height: 250px;
+		width: 600px;
+		}
+	.header {
+		background-color: #00fe0;
+		padding: 20px:
+		text-align: center;
+		}
+	.topnav {
+		overflow: hidden;
+		background-color: #999;
+		}
+	.topnav a {
+		float: left;
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		}
+	.topnav a:hover {
+		background-color: #eee;
+		color: black;
+		}
+	.column {
+		float: left;
+		padding: 10px;
+		}
+	.column.side {
+		width: 18%;
+		}
+	.column.middle {
+		width: 60%;
+		}
+	.column.info {
+		width: 18%;
+		}
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+	@media (max-width: 750px) {
+		.column.side, .column.middle, .column.info {
+			width: 100%;
+			}
+		}
+</style>
+</head>
+<body bgcolor="#eee">
+<div class="header">
+	<h1 style="text-align: center;"> Welcome! </h1>
+</div>
+<div class="topnav">
+	<a href="/index.html">Home</a>
+
+	<a href="TBD">Updates</a>
+
+	<a href="TBD"> Archive</a>
+
+	<a href="TBD"> About </a>
+</div>
+<div class="row">
+<h1 style="text-align: center;"> Auto Sorter VBS | A simple tool for sorting folders </h1>
+<a href="/ARCHIVE/Auto Sorter VBS\"><h2 id="L01" style="text-align: center;">Download</h2></a>
+<h6 style="text-align: center;">(right click & save as .txt)</h6>
+<div class="column side"> </div>
+<div class="column middle">
+<pre><code data-language="vbscript" >
+MsgBox " Auto Sort  Copyright (C) 2018  Liam Powell" & vbCrlf & "This program comes with ABSOLUTELY NO WARRANTY." &vbCrlf& "This is free software, and you are welcome to redistribute it under certain conditions."
+ShowFolderList("E:\Anime\Series\Genres - WiP\00-All") 	'Identify parent folder
+Sub ShowFolderList(folderspec)							'Start ShowFolderList Sub
+Dim fs, f, f1, fc, SubFolderLocation(), x				'Variable setup with SubFolderLocation Array
+Set fs = CreateObject("Scripting.FileSystemObject")		'Create FSO
+Set f = fs.GetFolder(folderspec)						'Get the folder in variable folderspec
+Set fc = f.SubFolders									'Find subfolders in folderspec
+    x = 0												'Initialize iteration
+For Each f1 in fc										'For every name in subfolder
+	x = x + 1											'Iterate iteration
+	ReDim SubFolderLocation(x)							'Redefine Array with proper number
+	SubFolderLocation(x) = SubFolderLocation(x) & "E:\Anime\Series\Genres - WiP\00-All\" & f1.name	'Addend the name of the folder to the file path
+		GetGenre(SubFolderLocation(x))					'Call Sub GetGenre
+	Next												'Move to next object(Next Sub)
+End Sub													'End Sub
+'Works Perfectly ^ 1/11/2018 @ 3:08 AM
+
+Sub GetGenre(FolderPath)								'Start GetGenre Sub
+Dim FilePath, fso										'Variable Setup
+Set fso = CreateObject("Scripting.FileSystemObject")	'Initialize fso
+FilePath = FolderPath & "/Genre.txt"					'Set FilePath equal to FolderPath + /Genre in order to locate the genre text identifier
+Set dict = CreateObject("Scripting.Dictionary")			'Create Scripting Dictionary
+Set file = fso.OpenTextFile (FilePath, 1)				'Open E:\Anime\Series\Genres - WiP\00-All\ + Sub Folder Name\Genre.txt
+row = 0													'Initialize row variable
+Do Until file.AtEndOfStream								'Start Reading loop
+	line = file.ReadLine								'Read first line of file - Identifies the first genre
+	dict.Add row, line									'Add the line to variable dict
+	row = row + 1										'Iterate row
+Loop													'Loop
+file.Close												'Close Open Text File
+For Each line in dict.Items								'Read every line in dict
+	Call CreateShortcut(line, FolderPath)				'Call CreateShortcut Sub
+Next													'Open Next Genre text
+End Sub													'End Sub
+
+Sub CreateShortcut(Genre, FolderPath)					'Start CreateShortcut Sub
+Dim FileName, UploadStac								'Setup Variables
+UploadStac = "Stac Upload"								'IDK what this is for, but it needs to be here
+FileName = Replace(FolderPath,"E:\Anime\Series\Genres - WiP\00-All\","")	'Example, E:\Anime\Series\Genres - WiP\00-All\Gurren Lagann -> Gurren Lagann
+set shortcut = CreateObject("Wscript.Shell").CreateShortcut(CreateObject("Wscript.Shell").SpecialFolders(Genre) & + "D:\Anime\Series\Genres - WiP\" + Genre + "\" + FileName + ".lnk")	'Create the shortcut in folder *Genre* with name FileName.lnk
+shortcut.Description = FileName							'Description for lnk
+shortcut.TargetPath = "E:\Anime\Series\" & Genre		'Location for shortcut
+shortcut.Arguments = "/Arguments:Shortcut"				'Arguments for lnk
+shortcut.Save											'Finish shortcut setup
+MsgBox "Sorted " + FileName + " into " + Genre + " Succesfully"
+End Sub													'End Sub
+
+</code>
+</pre>
+</div>
+</div>
+</body>
+</html>
+	
